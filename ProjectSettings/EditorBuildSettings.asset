@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/AR_Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 0
     path: Assets/Scenes/VR_Scene.unity
     guid: 1261e77bc889047c68d8c2d45f289426
+  - enabled: 0
+    path: Assets/prihect.unity
+    guid: 233baeddae434904ba42f6ec6c733bde
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: dd5771ee180e64c26ae20d16ae4f77d5, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: ea278bddd77004be38791280a085b488, type: 2}
