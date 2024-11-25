@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 10f;
     public float damage = 50f;
+    public GameObject explosionPrefab;
     private Transform target;
 
     public void SetTarget(Transform newTarget)
@@ -36,6 +37,11 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
             return;
+        }
+
+        if (explosionPrefab != null)
+        {
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         }
 
         Health targetHealth = target.GetComponent<Health>();
