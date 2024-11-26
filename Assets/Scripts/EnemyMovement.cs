@@ -23,10 +23,22 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        // Beweeg naar de positie van de speler als deze is gevonden
-        if (playerTransform != null)
+        if (playerTransform == null)
         {
-            agent.SetDestination(playerTransform.position);
+            FindCastle();
+            return;
+        }
+
+        agent.SetDestination(playerTransform.position);
+    }
+
+    void FindCastle()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Castle");
+        if (player != null)
+        {
+            playerTransform = player.transform;
         }
     }
+
 }

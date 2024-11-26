@@ -98,10 +98,10 @@ PrefabInstance:
       addedObject: {fileID: 8791221517048761290}
     - targetCorrespondingSourceObject: {fileID: 6533529299030763544, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3377619711818869203}
+      addedObject: {fileID: 6680231021762225051}
     - targetCorrespondingSourceObject: {fileID: 6533529299030763544, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9068312112124019927}
+      addedObject: {fileID: 2835416323068815824}
   m_SourcePrefab: {fileID: 100100000, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
 --- !u!114 &3376768637644865470 stripped
 MonoBehaviour:
@@ -216,22 +216,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3377619711818869203
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4346111395419595591}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d3eec4963e12e0408cadb8bd6763c11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 10
-  attackCooldown: 2
---- !u!136 &9068312112124019927
-CapsuleCollider:
+--- !u!135 &6680231021762225051
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -245,11 +231,23 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.3045336
-  m_Height: 4.987051
-  m_Direction: 1
-  m_Center: {x: -0.029594302, y: 1.9935228, z: -0}
+  serializedVersion: 3
+  m_Radius: 10.227449
+  m_Center: {x: -0.8151944, y: 2.6135302, z: 4.863885}
+--- !u!114 &2835416323068815824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346111395419595591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d3eec4963e12e0408cadb8bd6763c11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 10
+  attackCooldown: 2

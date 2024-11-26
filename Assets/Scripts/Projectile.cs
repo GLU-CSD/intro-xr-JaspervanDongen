@@ -41,7 +41,9 @@ public class Projectile : MonoBehaviour
 
         if (explosionPrefab != null)
         {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            // Instantiate the explosion and destroy it after a short delay
+            GameObject explosionInstance = Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(explosionInstance, 1f); // Adjust the delay based on the explosion's duration
         }
 
         Health targetHealth = target.GetComponent<Health>();
@@ -50,6 +52,7 @@ public class Projectile : MonoBehaviour
             targetHealth.TakeDamage(damage);
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject); // Destroy the projectile itself
     }
 }
+
