@@ -2620,6 +2620,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5602190132116319878, guid: 7c6bec54b45741d4e9bd9f06bd4ce4de, type: 3}
+      propertyPath: m_Center.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602190132116319878, guid: 7c6bec54b45741d4e9bd9f06bd4ce4de, type: 3}
+      propertyPath: m_Center.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5602190132116319878, guid: 7c6bec54b45741d4e9bd9f06bd4ce4de, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6792864761731171427, guid: 7c6bec54b45741d4e9bd9f06bd4ce4de, type: 3}
       propertyPath: m_Name
       value: Base
@@ -2724,6 +2736,10 @@ PrefabInstance:
     - target: {fileID: 8724767246989831052, guid: 5833d0ea8fdc18145b59bbc0fae187ac, type: 3}
       propertyPath: m_Name
       value: Spawner mountain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739390277715988680, guid: 5833d0ea8fdc18145b59bbc0fae187ac, type: 3}
+      propertyPath: m_Center.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
