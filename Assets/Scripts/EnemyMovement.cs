@@ -8,13 +8,13 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent agent;
     private Transform castleTransform;
 
-    public float attackRange = 10f;         // Range to start attacking
+    public float attackRange = 15f;         // Range to start attacking
     public GameObject beamPrefab;          // Prefab for the beam attack
     public Transform beamOrigin;           // Position from which the beam is fired
     public float attackCooldown = 2f;      // Time between attacks
     public float damageAmount = 10f;       // Damage dealt per attack
     public float beamSpeed = 20f;          // Speed of the beam
-    public float beamLifetime = 1f;        // Time before the beam is destroyed
+    public float beamLifetime = 1.5f;        // Time before the beam is destroyed
 
     private float lastAttackTime;
     private bool isAttacking = false;

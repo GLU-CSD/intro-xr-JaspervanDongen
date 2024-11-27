@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3743193083822685011, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6533529299030763544, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
       propertyPath: m_Name
@@ -107,8 +107,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3743193083822685011, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 9214127859143991339, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
@@ -132,10 +131,10 @@ PrefabInstance:
       addedObject: {fileID: 8791221517048761290}
     - targetCorrespondingSourceObject: {fileID: 6533529299030763544, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6680231021762225051}
+      addedObject: {fileID: 2835416323068815824}
     - targetCorrespondingSourceObject: {fileID: 6533529299030763544, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2835416323068815824}
+      addedObject: {fileID: 5349991906719089017}
   m_SourcePrefab: {fileID: 100100000, guid: f6d7b0c822d6033489487e4c089a832b, type: 3}
 --- !u!4 &1811739499132627828 stripped
 Transform:
@@ -233,6 +232,8 @@ MonoBehaviour:
   beamOrigin: {fileID: 8261155896410646916}
   attackCooldown: 2
   damageAmount: 10
+  beamSpeed: 10
+  beamLifetime: 1.5
 --- !u!54 &8791221517048761290
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -260,27 +261,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &6680231021762225051
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4346111395419595591}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 10.227449
-  m_Center: {x: -0.8151944, y: 2.6135302, z: 4.863885}
 --- !u!114 &2835416323068815824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,3 +275,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageAmount: 10
   attackCooldown: 2
+--- !u!136 &5349991906719089017
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346111395419595591}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.4461077
+  m_Height: 4.83043
+  m_Direction: 1
+  m_Center: {x: -0, y: 1.915212, z: -0.07028798}
