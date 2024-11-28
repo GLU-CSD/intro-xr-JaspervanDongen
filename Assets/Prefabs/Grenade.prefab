@@ -238,7 +238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionForce: 1000
   explosionRadius: 5
-  dynamiteExplosion: {fileID: 1368782967120030, guid: bdbdcfd7c511df246af535551f842df5, type: 3}
+  dynamiteExplosion: {fileID: 1163451204420696, guid: 95175aeab20f4d041860eca89a4ddded, type: 3}
 --- !u!136 &8917641424481030952
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -9,12 +9,14 @@ public class EnemyMovement : MonoBehaviour
     private Transform castleTransform;
 
     public float attackRange = 15f;         // Range to start attacking
-    public GameObject beamPrefab;          // Prefab for the beam attack
-    public Transform beamOrigin;           // Position from which the beam is fired
+    public GameObject explosivePrefab;     // Prefab for the explosive projectile
+    public Transform projectileOrigin;     // Position from which the projectile is fired
     public float attackCooldown = 2f;      // Time between attacks
     public float damageAmount = 10f;       // Damage dealt per attack
-    public float beamSpeed = 20f;          // Speed of the beam
-    public float beamLifetime = 1.5f;        // Time before the beam is destroyed
+    public float projectileSpeed = 10f;    // Speed of the projectile
+    public float explosionRadius = 5f;     // Radius of the explosion
+    public float explosionForce = 500f;    // Force of the explosion
+    public GameObject explosionEffect;     // Effect to play on impact
 
     private float lastAttackTime;
     private bool isAttacking = false;
@@ -70,7 +72,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (Time.time >= lastAttackTime + attackCooldown)
         {
-            ShootBeam();
+            ShootExplosiveProjectile();
         }
     }
 
@@ -83,40 +85,44 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    void ShootBeam()
+    void ShootExplosiveProjectile()
     {
-        if (beamPrefab != null && beamOrigin != null && castleTransform != null)
+        if (explosivePrefab != null && projectileOrigin != null && castleTransform != null)
         {
-            // Calculate direction and distance
-            Vector3 direction = (castleTransform.position - beamOrigin.position).normalized;
-            float distance = Vector3.Distance(beamOrigin.position, castleTransform.position);
+            // Instantiate the projectile
+            GameObject explosive = Instantiate(explosivePrefab, projectileOrigin.position, Quaternion.identity);
 
-            // Instantiate the beam
-            GameObject beam = Instantiate(beamPrefab, beamOrigin.position, Quaternion.identity);
-
-            // Align the beam's rotation to face the castle
-            beam.transform.forward = direction;
-
-            // Adjust the beam's scale along the z-axis
-            beam.transform.localScale = new Vector3(beam.transform.localScale.x,
-                                                    beam.transform.localScale.y,
-                                                    distance);
-
-            // Position the beam at the midpoint between the origin and the castle
-            beam.transform.position = beamOrigin.position + direction * (distance / 2f);
-
-            // Deal damage to the castle
-            Health castleHealth = castleTransform.GetComponent<Health>();
-            if (castleHealth != null)
+            // Calculate the direction and set the projectile's velocity
+            Vector3 direction = (castleTransform.position - projectileOrigin.position).normalized;
+            Rigidbody rb = explosive.GetComponent<Rigidbody>();
+            if (rb != null)
             {
-                castleHealth.TakeDamage(damageAmount);
+                rb.velocity = direction * projectileSpeed;
             }
 
-            // Destroy the beam after a certain time
-            Destroy(beam, beamLifetime);
+            // Align the projectile to face the direction it's moving
+            explosive.transform.rotation = Quaternion.LookRotation(direction);
 
+            // Ignore collisions with the enemy's collider
+            Collider enemyCollider = GetComponent<Collider>();
+            Collider projectileCollider = explosive.GetComponent<Collider>();
+            if (enemyCollider != null && projectileCollider != null)
+            {
+                Physics.IgnoreCollision(projectileCollider, enemyCollider);
+            }
+
+            // Set the projectile's target and explosion properties
+            ExplosiveProjectile explosiveScript = explosive.GetComponent<ExplosiveProjectile>();
+            if (explosiveScript != null)
+            {
+                explosiveScript.Initialize(castleTransform, damageAmount, explosionEffect);
+            }
+
+            // Record the last attack time
             lastAttackTime = Time.time;
         }
     }
+
+
 
 }
