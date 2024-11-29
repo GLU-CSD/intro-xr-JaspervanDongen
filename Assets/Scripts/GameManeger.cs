@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
 
     // UI die getoond wordt bij game over
     [SerializeField] private GameObject gameOverUI;
+    private void Start()
+    {
+    scoreText.text = "Score: " + score;
+    }
+
 
     void Update()
     {
@@ -26,6 +31,7 @@ public class GameManager : MonoBehaviour
             if (scoreTimer >= 1f) // Verhoog de score elke seconde
             {
                 score++;
+                scoreText.text = "Score: " + score;
                 scoreTimer = 0f; // Reset de timer
             }
         }
@@ -52,6 +58,11 @@ public class GameManager : MonoBehaviour
 
         // Toon de Game Over UI
         gameOverUI.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
 

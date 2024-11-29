@@ -228,7 +228,7 @@ MonoBehaviour:
   explosivePrefab: {fileID: 1845278646426305023, guid: 05e1907f0ee0acb4a9bff97444628a90, type: 3}
   projectileOrigin: {fileID: 8261155896410646916}
   attackCooldown: 1.5
-  damageAmount: 15
+  damageAmount: 200
   projectileSpeed: 5
   explosionRadius: 1
   explosionForce: 500

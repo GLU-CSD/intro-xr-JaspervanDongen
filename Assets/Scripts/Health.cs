@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
         // Check if health is 0 or less and call Death function
         if (currentHealth <= 0)
         {
-            Death();
+            //Death();
         }
     }
 
